@@ -19,12 +19,12 @@ class Settings(BaseSettings):
 
     app_name: str = "AI Copilot for Support Agents"
 
-    groq_api_key: str = ""
+    #groq_api_key: str = ""
     groq_model: str = "llama-3.1-8b-instant"
     llm_temperature: float = 0.2
 
-    openai_api_key: str = ""
-    google_api_key: str = ""
+    #openai_api_key: str = ""
+    #google_api_key: str = ""
     google_embedding_model: str = "gemini-embedding-001"
     enable_local_embeddings: bool = False
 
