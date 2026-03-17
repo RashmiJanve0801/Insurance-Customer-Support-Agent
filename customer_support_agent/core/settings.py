@@ -7,6 +7,7 @@ load_dotenv()
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import Field
 from pydantic_settings import  BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
@@ -14,7 +15,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        extra="ignore"
+        extra="ignore",
+        env_ignore_empty=True
     )
 
     app_name: str = "AI Copilot for Support Agents"
@@ -23,8 +25,8 @@ class Settings(BaseSettings):
     groq_model: str = "llama-3.1-8b-instant"
     llm_temperature: float = 0.2
 
-    #openai_api_key: str = ""
-    #google_api_key: str = ""
+    groq_api_key: str = Field(default="", description="Groq API key")
+    google_api_key: str = Field(default="", description="Google API key")
     google_embedding_model: str = "gemini-embedding-001"
     enable_local_embeddings: bool = False
 
